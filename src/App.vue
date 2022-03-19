@@ -1,19 +1,26 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <transition :name="transition">
+      <navigation>
+        <router-view class="router-view"></router-view>
+      </navigation>
+    </transition>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name: "App",
+  data() {
+    return {
+      transition: "fade"
+    };
+  },
+  mounted() {
+    var a = this.$route;
+    console.log("测试", a);
   }
-}
+};
 </script>
 
 <style>
