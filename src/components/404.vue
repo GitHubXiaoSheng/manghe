@@ -1,10 +1,10 @@
 <template>
-  <div @click="ToA"> 跳转A</div>
+  <div> 404</div>
 </template>
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "404",
   props: {
     msg: String
   },

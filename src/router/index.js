@@ -19,11 +19,11 @@ router.beforeEach((to, from, next) => {
     // rt.setMetaTitle(to.meta.title);
 
     //路由守卫
-    // if (to.meta.guard) {
-    next();
-    // } else {
-    //     next();
-    // }
+    if (to.meta.guard) {
+        next();
+    } else {
+        next();
+    }
     //路由管控
 
 });

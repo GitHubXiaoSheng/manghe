@@ -15,10 +15,6 @@ export default {
     return {
       transition: "fade"
     };
-  },
-  mounted() {
-    var a = this.$route;
-    console.log("测试", a);
   }
 };
 </script>
@@ -30,6 +26,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  width: 100vw;
+  height: 100vh;
+  /* margin-top: 60px; */
+}
+body{
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
 }
 </style>

@@ -1,8 +1,9 @@
 
 const Main = resolve => require(["@/view/Main.vue"], resolve);
-const HelloWorld = resolve => require(["@/components/HelloWorld.vue"], resolve);
-const test = resolve => require(["@/view/test.vue"], resolve);
-const testB = resolve => require(["@/view/B.vue"], resolve);
+const A404 = resolve => require(["@/components/404.vue"], resolve);
+
+
+const Home = resolve => require(["@/view/Home.vue"], resolve);
 
 const router = [
     {
@@ -12,33 +13,22 @@ const router = [
     {
         path: '/404',
         name: '404',
-        component: HelloWorld,
+        component: A404,
         meta: {
         }
     },
     {
-        path: '/test',
-        name: 'test',
-        component: test,
+        path: '/',
+        component: Main,
         children: [
             {
-                name: 'A',
-                path: '/testA',
-                component: test,
+                path: '/home',
+                name: 'home',
+                component: Home,
                 meta: {
-                    title: 'A页面',
-                    guard: false
                 }
             },
-            {
-                name: 'B',
-                path: '/testB',
-                component: testB,
-                meta: {
-                    title: 'A页面',
-                    guard: false
-                }
-            }
+
         ]
     },
 ]
