@@ -36,16 +36,77 @@
       <div class="chou-box">
         <div class="chou-box-item">
           <div class="nan-bg"></div>
-          <div class="btn-box">
-            <div class="btn">存</div>
-            <div class="btn">取</div>
+          <div class="btn-bg">
+            <div class="btn-box">
+              <div class="btn">男生·<span class="btn-span">存</span></div>
+              <div class="btn" style="margin-left: 10px;">
+                <span class="btn-span">取</span>·男生
+              </div>
+            </div>
+            <div class="btn10">
+              <span class="btn10-span">抽</span>·男生
+              <span class="btn10-span">10</span>连抽
+            </div>
           </div>
-          <div class="btn10">十连抽</div>
         </div>
-        <div class="chou-box-item"></div>
+        <div class="chou-box-item">
+          <div class="nv-bg"></div>
+          <div class="btn-bg">
+            <div class="btn-box">
+              <div class="btn">女生·<span class="btn-span">存</span></div>
+              <div class="btn" style="margin-left: 10px;">
+                <span class="btn-span">取</span>·女生
+              </div>
+            </div>
+            <div class="btn10">
+              <span class="btn10-span">抽</span>·女生
+              <span class="btn10-span">10</span>连抽
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div v-if="tabIndex == 3"><div class="baitanBox"></div></div>
+    <div v-if="tabIndex == 3" class="tab-box2">
+      <div class="baitanBox"></div>
+      <div class="baitan-box">
+        <div class="p-box">
+          <p>
+            成为红娘，在线上或线下摆个摊
+          </p>
+          <p>
+            加入我们拯救单身狗的大军!
+          </p>
+          <p>
+            当然不是白干!
+          </p>
+          <p>
+            你推广产生的收益可获得55%
+          </p>
+          <p>
+            当然，咱做这些怎么会是为了钱
+          </p>
+          <p>
+            还不是为国出力，提高结婚率
+          </p>
+          <p>
+            从而提高生育率，减慢老龄化
+          </p>
+          <p>
+            这么伟大的工作，-定要有点门槛
+          </p>
+          <p>
+            考公务员都还得交报名费不是?
+          </p>
+          <p>成为红娘，限时特价8.8元</p>
+          <p>快上车，暂时只开100名</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-box">
+      <div class="foot-btn">玩家须知</div>
+      <div class="foot-btn">联系客户</div>
+      <div class="foot-btn">投诉举报</div>
+    </div>
   </div>
 </template>
 <script>
@@ -67,14 +128,48 @@ export default {
 };
 </script>
 <style>
+.baitan-box {
+  flex: 1;
+}
+.p-box {
+  text-align: left;
+  padding-left: 16px;
+  color: #aaa;
+}
 .btn-box {
   display: flex;
 }
 .btn {
-  height: 22px;
-  background: #a7d5f1;
-  width: 40px;
+  height: 35px;
+  line-height: 35px;
+  background: #f0ca8c;
+  width: 70px;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+.btn-span {
+  font-size: 17px;
+  color: #000;
+}
+.btn10 {
+  width: 150px;
+  background: #86666b;
+  margin: 10px 0;
+  border-radius: 5px;
+  height: 35px;
+  line-height: 35px;
+  color: #fff;
+  font-size: 15px;
+}
+.btn10-span {
+  font-size: 17px;
+  color: #f0ca8c;
+}
+.btn-bg {
+  background: #fff;
+  padding: 10px 10px 0px 10px;
+  border-radius: 8px;
 }
 .nan-bg {
   background-image: url("../assets/img/nan.png");
@@ -82,13 +177,17 @@ export default {
   background-repeat: no-repeat;
   width: 100px;
   height: 100px;
-  margin: 10px;
+  margin: 30px 10px;
   border-radius: 10px;
 }
 .nv-bg {
   background-image: url("../assets/img/nv.png");
   background-size: cover;
   background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  margin: 30px 10px;
+  border-radius: 10px;
 }
 .tab-box2 {
   flex: 1;
@@ -100,9 +199,9 @@ export default {
   display: flex;
 }
 .chou-box-item {
-  background: #aaa;
+  background: #565773;
   flex: 1;
-  height: 350px;
+  height: 280px;
   margin: 10px;
   border-radius: 10px;
   display: flex;
@@ -118,6 +217,18 @@ export default {
 .my-box-item-action {
   background: #010;
   color: #fff;
+}
+.footer-box {
+  display: flex;
+  justify-content: center;
+}
+.foot-btn {
+  color: #000;
+  font-weight: bolder;
+  font-size: 14px;
+  height: 30px;
+  width: 75px;
+  line-height: 30px;
 }
 .tab-content {
   flex: 1;
