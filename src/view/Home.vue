@@ -70,9 +70,7 @@
       <div class="baitanBox"></div>
       <div class="baitan-box">
         <div class="p-box">
-          <p>
-            成为红娘，在线上或线下摆个摊
-          </p>
+          <p><span class="jiacun">成为</span>红娘，在线上或线下摆个摊</p>
           <p>
             加入我们拯救单身狗的大军!
           </p>
@@ -80,7 +78,8 @@
             当然不是白干!
           </p>
           <p>
-            你推广产生的收益可获得55%
+            <span class="jiacun">你推广产生的收益可获得</span>
+            <span class="jiacunred">50%</span>
           </p>
           <p>
             当然，咱做这些怎么会是为了钱
@@ -97,8 +96,15 @@
           <p>
             考公务员都还得交报名费不是?
           </p>
-          <p>成为红娘，限时特价8.8元</p>
+          <p>
+            <span class="jiacun">成为红娘，限时特价</span>
+            <span class="jiacunred">8.8元</span>
+          </p>
           <p>快上车，暂时只开100名</p>
+        </div>
+        <div class="fufei">8.8元成为红娘</div>
+        <div class="fufeitishi">
+          温馨提示: 虚拟产品概不退款, 付费前请谨慎考虑!
         </div>
       </div>
     </div>
@@ -128,6 +134,28 @@ export default {
 };
 </script>
 <style>
+.fufeitishi {
+  color: #aaa;
+  font-size: 13px;
+}
+.fufei {
+  margin: 30px 16px 10px 16px;
+  background: yellow;
+  height: 40px;
+  color: #aaa;
+  line-height: 40px;
+  border-radius: 8px;
+}
+.jiacun {
+  font-size: 18px;
+  font-weight: bolder;
+  color: #000;
+}
+.jiacunred {
+  font-size: 27px;
+  color: red;
+  font-weight: bold;
+}
 .baitan-box {
   flex: 1;
 }
