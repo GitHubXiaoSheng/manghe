@@ -65,6 +65,11 @@
           </div>
         </div>
       </div>
+      <div class="footer-box">
+        <div class="foot-btn">玩家须知</div>
+        <div class="foot-btn">联系客户</div>
+        <div class="foot-btn">投诉举报</div>
+      </div>
     </div>
     <div v-if="tabIndex == 3" class="tab-box2">
       <div class="baitanBox"></div>
@@ -108,11 +113,6 @@
         </div>
       </div>
     </div>
-    <div class="footer-box">
-      <div class="foot-btn">玩家须知</div>
-      <div class="foot-btn">联系客户</div>
-      <div class="foot-btn">投诉举报</div>
-    </div>
   </div>
 </template>
 <script>
@@ -126,6 +126,7 @@ export default {
   methods: {
     changeTab(index) {
       this.tabIndex = index;
+      this.post("api/Sys_User/WxLogin", {}).then(res => {});
     },
     changeMyTab(index) {
       this.myIndex = index;
@@ -290,7 +291,7 @@ export default {
 }
 .tuodan-bar {
   height: 160px;
-  background-image: url("../assets/img/tuodan.jpg");
+  background-image: url("../assets/img/fanzha.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   margin: 0 10px;
