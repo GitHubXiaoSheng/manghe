@@ -126,7 +126,7 @@ export default {
   methods: {
     changeTab(index) {
       this.tabIndex = index;
-      this.post("api/Sys_User/WxLogin", {}).then(res => {});
+      this.post("api/Sys_User/WxLogin", { openId: "" }).then(res => {});
     },
     changeMyTab(index) {
       this.myIndex = index;

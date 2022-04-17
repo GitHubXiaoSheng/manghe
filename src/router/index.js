@@ -17,7 +17,7 @@ router.beforeEach((to, from, next) => {
 
     // 设置页面标题
     // rt.setMetaTitle(to.meta.title);
-
+    document.title = to.meta.title;
     //路由守卫
     if (to.meta.guard) {
         next();

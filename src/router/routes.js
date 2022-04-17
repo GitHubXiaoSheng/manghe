@@ -26,6 +26,7 @@ const router = [
                 name: 'home',
                 component: Home,
                 meta: {
+                    title: "首页"
                 }
             },
 
