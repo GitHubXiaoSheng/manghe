@@ -2,6 +2,8 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Navigation from 'vue-navigation';
 import routes from './routes';
+import author from '@/util/author.js'
+import store from '../store';
 
 const router = new VueRouter({
     routes
@@ -22,7 +24,14 @@ router.beforeEach((to, from, next) => {
     if (to.meta.guard) {
         next();
     } else {
-        next();
+        if (!store.state.user.userId) {
+            author.wxmpLogin().then(user => {
+                store.commit('UPDATE_USER', user || {})
+                next()
+            });
+        } else {
+            next();
+        }
     }
     //路由管控
 

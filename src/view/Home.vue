@@ -120,8 +120,13 @@ export default {
   data() {
     return {
       tabIndex: 2,
-      myIndex: 1
+      myIndex: 1,
+      userName:''
     };
+  },
+  created() {
+    this.userName = this.$store.state.user.userId;
+    console.log(this.userName)
   },
   methods: {
     changeTab(index) {

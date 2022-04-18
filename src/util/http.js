@@ -35,7 +35,7 @@ axios.interceptors.response.use(
             showToast(res.data.Message)
             throw new Error(res.data.Message)
         } else {
-            return res.data;
+            return res.data.Data;
         }
     },
     error => {
