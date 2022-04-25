@@ -113,25 +113,34 @@
         </div>
       </div>
     </div>
+    <BottomDialog ref="dialog" class="bottom-dialog-box">
+      <AddCard />
+    </BottomDialog>
   </div>
 </template>
 <script>
+import AddCard from "./AddCard";
+import BottomDialog from "./BottomDialog";
 export default {
+  components: {
+    AddCard,
+    BottomDialog
+  },
   data() {
     return {
       tabIndex: 2,
       myIndex: 1,
-      userName:''
+      userName: ""
     };
   },
   created() {
     this.userName = this.$store.state.user.userId;
-    console.log(this.userName)
+    console.log(this.userName);
   },
   methods: {
     changeTab(index) {
       this.tabIndex = index;
-      this.post("api/Sys_User/WxLogin", { openId: "" }).then(res => {});
+      this.$refs.dialog.show()
     },
     changeMyTab(index) {
       this.myIndex = index;

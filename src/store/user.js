@@ -8,6 +8,7 @@ export default {
       // for (const key in user) {
       //   state[key] = user[key]
       // }
+      localStorage.setItem('token',user.token)
       state.user = user || {};
       state.userId = user.User_Id || '';
     }

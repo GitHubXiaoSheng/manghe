@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router';
 import Navigation from 'vue-navigation';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 
 import { Toast } from 'antd-mobile'
 
@@ -16,7 +18,7 @@ Vue.prototype.$http = Vue.http = axios;
 Vue.prototype.post = window.post = axios.post;
 Vue.prototype.get = window.get = axios.get;
 Vue.prototype.showToast = window.showToast = Toast.show;
-
+Vue.use(ElementUI);
 // author.getwxopenId()
 // const app = Vue.createApp(App)
 // app.use(routes)
