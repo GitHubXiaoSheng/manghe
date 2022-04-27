@@ -38,12 +38,18 @@
           <div class="nan-bg"></div>
           <div class="btn-bg">
             <div class="btn-box">
-              <div class="btn">男生·<span class="btn-span">存</span></div>
-              <div class="btn" style="margin-left: 10px;">
+              <div class="btn" @click="cun(1)">
+                男生·<span class="btn-span">存</span>
+              </div>
+              <div
+                class="btn"
+                style="margin-left: 10px;"
+                @click="getCard(1, 1)"
+              >
                 <span class="btn-span">取</span>·男生
               </div>
             </div>
-            <div class="btn10">
+            <div class="btn10" @click="getCard(1, 10)">
               <span class="btn10-span">抽</span>·男生
               <span class="btn10-span">10</span>连抽
             </div>
@@ -53,12 +59,18 @@
           <div class="nv-bg"></div>
           <div class="btn-bg">
             <div class="btn-box">
-              <div class="btn">女生·<span class="btn-span">存</span></div>
-              <div class="btn" style="margin-left: 10px;">
+              <div class="btn" @click="cun(0)">
+                女生·<span class="btn-span">存</span>
+              </div>
+              <div
+                class="btn"
+                style="margin-left: 10px;"
+                @click="getCard(0, 1)"
+              >
                 <span class="btn-span">取</span>·女生
               </div>
             </div>
-            <div class="btn10">
+            <div class="btn10" @click="getCard(1, 10)">
               <span class="btn10-span">抽</span>·女生
               <span class="btn10-span">10</span>连抽
             </div>
@@ -113,9 +125,9 @@
         </div>
       </div>
     </div>
-    <BottomDialog ref="dialog" class="bottom-dialog-box">
-      <AddCard />
-    </BottomDialog>
+    <!-- <BottomDialog ref="dialog" class="bottom-dialog-box"> -->
+    <AddCard ref="addcard" />
+    <!-- </BottomDialog> -->
   </div>
 </template>
 <script>
@@ -123,8 +135,8 @@ import AddCard from "./AddCard";
 import BottomDialog from "./BottomDialog";
 export default {
   components: {
-    AddCard,
-    BottomDialog
+    AddCard
+    // BottomDialog
   },
   data() {
     return {
@@ -138,9 +150,22 @@ export default {
     console.log(this.userName);
   },
   methods: {
+    cun(sex) {
+      // this.$refs.dialog.show();
+      this.$refs.addcard.show(sex);
+    },
+    getCard(sex, count) {
+      var data = {
+        tanwei: "",
+        sex,
+        count
+      };
+      post("api/userCard/GetCard", data).then(res => {
+        showToast(res.Wx);
+      });
+    },
     changeTab(index) {
       this.tabIndex = index;
-      this.$refs.dialog.show()
     },
     changeMyTab(index) {
       this.myIndex = index;

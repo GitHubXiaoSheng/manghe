@@ -2,20 +2,31 @@
   <div v-if="visible" class="bottom-dialog-box" @click.stop="close">
     <div class="bottom-dialog-content" @click.stop="">
       <slot></slot>
-      <div slot="content">测试</div>
     </div>
   </div>
 </template>
 <script>
 export default {
+  provide() {
+    return {
+      reload: this.reload
+    };
+  },
   data() {
     return {
       visible: false
     };
   },
   methods: {
-    show() {
+    async reload() {
+      this.visible = false;
+      await this.$nextTick();
       this.visible = true;
+      console.log('刷新事件')
+    },
+    show() {
+      this.reload();
+      //this.visible = true;
     },
     close() {
       this.visible = false;
@@ -34,7 +45,7 @@ export default {
 .bottom-dialog-content {
   position: absolute;
   width: 100%;
-  height: 70%;
+  /* height: 70%; */
   bottom: 0;
   z-index: 100;
   background: #fff;
