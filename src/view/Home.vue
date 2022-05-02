@@ -29,7 +29,12 @@
           我抽到的纸条
         </div>
       </div>
-      <div></div>
+      <div>
+        <div v-if="myIndex == 1" class="recordlist-box">
+          <RecordList ref="record1" />
+        </div>
+        <div v-if="myIndex == 2">测试2</div>
+      </div>
     </div>
     <div v-if="tabIndex == 2" class="tab-box2">
       <div class="tuodan-bar"></div>
@@ -125,17 +130,17 @@
         </div>
       </div>
     </div>
-    <!-- <BottomDialog ref="dialog" class="bottom-dialog-box"> -->
     <AddCard ref="addcard" />
-    <!-- </BottomDialog> -->
   </div>
 </template>
 <script>
 import AddCard from "./AddCard";
 import BottomDialog from "./BottomDialog";
+import RecordList from "./RecordList.vue";
 export default {
   components: {
-    AddCard
+    AddCard,
+    RecordList
     // BottomDialog
   },
   data() {
@@ -174,6 +179,10 @@ export default {
 };
 </script>
 <style>
+.recordlist-box {
+  flex: 1;
+  height: calc(100vh - 125px);
+}
 .fufeitishi {
   color: #aaa;
   font-size: 13px;
