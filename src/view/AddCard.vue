@@ -12,7 +12,7 @@
           </el-radio-group>
         </el-form-item>
         <el-form-item label="个性签名">
-          <el-input v-model="card.region"></el-input>
+          <el-input v-model="card.remark"></el-input>
         </el-form-item>
         <el-form-item label="头像">
           <el-upload

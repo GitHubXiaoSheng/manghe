@@ -30,10 +30,12 @@
         </div>
       </div>
       <div>
-        <div v-if="myIndex == 1" class="recordlist-box">
-          <RecordList ref="record1" />
+        <div v-if="myIndex == 1" class="recordlist-box" key="record1">
+          <RecordList ref="record1" type="1" />
         </div>
-        <div v-if="myIndex == 2">测试2</div>
+        <div v-if="myIndex == 2" class="recordlist-box" key="record2">
+          <RecordList ref="record1" type="0" />
+        </div>
       </div>
     </div>
     <div v-if="tabIndex == 2" class="tab-box2">
@@ -155,6 +157,9 @@ export default {
     console.log(this.userName);
   },
   methods: {
+    // loadCardRecord(){
+
+    // },
     cun(sex) {
       // this.$refs.dialog.show();
       this.$refs.addcard.show(sex);
@@ -166,7 +171,8 @@ export default {
         count
       };
       post("api/userCard/GetCard", data).then(res => {
-        showToast(res.Wx);
+        var wx = res.map(x => x.Wx).join(", ");
+        showToast("获取" + wx);
       });
     },
     changeTab(index) {
