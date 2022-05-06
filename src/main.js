@@ -7,11 +7,13 @@ import 'element-ui/lib/theme-chalk/index.css';
 import { Toast } from 'antd-mobile'
 
 import App from './App.vue'
+import Vconsole from "vconsole";
+new Vconsole();
 
 import router from './router/index.js'
 import store from './store/index.js'
 import axios from './util/http.js'
-//import author from './util/author.js'
+// import author from './util/author.js'
 
 Vue.config.productionTip = false
 Vue.prototype.$http = Vue.http = axios;
@@ -19,7 +21,7 @@ Vue.prototype.post = window.post = axios.post;
 Vue.prototype.get = window.get = axios.get;
 Vue.prototype.showToast = window.showToast = Toast.show;
 Vue.use(ElementUI);
-// author.getwxopenId()
+// author.wxConfig()
 // const app = Vue.createApp(App)
 // app.use(routes)
 // app.use(store)

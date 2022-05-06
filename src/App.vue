@@ -9,12 +9,16 @@
 </template>
 
 <script>
+import author from "@/util/author.js";
 export default {
   name: "App",
   data() {
     return {
       transition: "fade"
     };
+  },
+  created() {
+    author.wxConfig();
   }
 };
 </script>
@@ -30,7 +34,7 @@ export default {
   height: 100vh;
   /* margin-top: 60px; */
 }
-body{
+body {
   margin: 0;
   width: 100vw;
   height: 100vh;

@@ -24,14 +24,15 @@ router.beforeEach((to, from, next) => {
     if (to.meta.guard) {
         next();
     } else {
-        if (!store.state.user.userId) {
-            author.wxmpLogin().then(user => {
-                store.commit('UPDATE_USER', user || {})
-                next()
-            });
-        } else {
-            next();
-        }
+        next()
+        // if (!store.state.user.userId) {
+        //     author.wxmpLogin().then(user => {
+        //         store.commit('UPDATE_USER', user || {})
+        //         next()
+        //     });
+        // } else {
+        //     next();
+        // }
     }
     //路由管控
 

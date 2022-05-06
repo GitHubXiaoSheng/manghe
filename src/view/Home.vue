@@ -136,9 +136,10 @@
   </div>
 </template>
 <script>
-import AddCard from "./AddCard";
-import BottomDialog from "./BottomDialog";
+import AddCard from "./AddCard.vue";
+import BottomDialog from "./BottomDialog.vue";
 import RecordList from "./RecordList.vue";
+import pay from "@/util/pay.js";
 export default {
   components: {
     AddCard,
@@ -165,14 +166,24 @@ export default {
       this.$refs.addcard.show(sex);
     },
     getCard(sex, count) {
-      var data = {
-        tanwei: "",
-        sex,
-        count
-      };
-      post("api/userCard/GetCard", data).then(res => {
-        var wx = res.map(x => x.Wx).join(", ");
-        showToast("获取" + wx);
+      pay.inWxOrder(0.01, "抽盲盒").then(res => {
+        // var data = { tanwei: "", sex, count };
+        // post("api/userCard/GetCard", data).then(res => {
+        //   var wx = res.map(x => x.Wx).join(", ");
+        //   showToast("已抽中" + wx);
+        // });
+        var pay = res;
+        wx.chooseWXPay({
+          ...res,
+          success: res => {
+            debugger;
+            var data = { tanwei: "", sex, count };
+            post("api/userCard/GetCard", data).then(res => {
+              var wx = res.map(x => x.Wx).join(", ");
+              showToast("已抽中" + wx);
+            });
+          }
+        });
       });
     },
     changeTab(index) {
