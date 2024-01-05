@@ -17,6 +17,7 @@ axios.interceptors.request.use(
 
         if (!config.url.includes("http") && !config.url.includes("https")) {
             var baseapi = localStorage.getItem("baseApi");
+            //var baseapi = "http://82.156.173.82:9991/";
             if (!baseapi) {
                 baseapi = 'https://zhou-lin.cn:9991/';
                 localStorage.setItem("baseApi", baseapi);
