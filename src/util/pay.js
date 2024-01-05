@@ -1,8 +1,8 @@
-const inWxOrder = (amount, des, orderNo) => {
+const getWxOrder = (count, des, orderNo) => {
     var openId = localStorage.getItem('openId')
     return post('api/userCard/GetWxOrder', {
         orderNo: orderNo,
-        amount: amount,
+        count: count,
         openId: openId,
         des: des
     })
@@ -11,5 +11,5 @@ const wxPay = (orderId) => {
 
 }
 export default {
-    inWxOrder, wxPay
+    getWxOrder, wxPay
 }
