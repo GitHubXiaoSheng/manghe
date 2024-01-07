@@ -25,7 +25,7 @@
             :headers="headers"
             :data="card"
             :on-change="fileChange"
-            :http-request="fileRequest"
+            :http-request="getWxOrder"
             :auto-upload="false"
           >
             <!-- :auto-upload="false" -->
@@ -42,6 +42,7 @@
 </template>
 <script>
 import BottomDialog from "./BottomDialog";
+import pay from "@/util/pay.js";
 export default {
   components: {
     BottomDialog
@@ -85,6 +86,17 @@ export default {
       post("api/userCard/AddCard", data).then(res => {
         showToast(res);
         this.$refs.dialog.close();
+      });
+    },
+    getWxOrder(){
+      pay.getWxOrder(1, "抽盲盒").then(res => {
+        var pay = res;
+        wx.chooseWXPay({
+          ...res,
+          success: res => {
+            this.fileRequest()
+          }
+        });
       });
     }
   }
