@@ -166,7 +166,7 @@ export default {
       this.$refs.addcard.show(sex);
     },
     getCard(sex, count) {
-      pay.inWxOrder(0.01, "抽盲盒").then(res => {
+      pay.getWxOrder(count, "抽盲盒").then(res => {
         // var data = { tanwei: "", sex, count };
         // post("api/userCard/GetCard", data).then(res => {
         //   var wx = res.map(x => x.Wx).join(", ");
@@ -198,7 +198,7 @@ export default {
 <style>
 .recordlist-box {
   flex: 1;
-  height: calc(100vh - 125px);
+  height: calc(100vh - 117px);
 }
 .fufeitishi {
   color: #aaa;
