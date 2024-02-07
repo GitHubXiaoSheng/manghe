@@ -9,6 +9,7 @@
         :span="24"
         v-for="(item, index) in list"
         :key="'key' + index"
+        style="overflow:auto"
         class="list-item"
       >
         <div class="item-content">
